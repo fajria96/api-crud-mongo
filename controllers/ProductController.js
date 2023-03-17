@@ -1,7 +1,7 @@
-import Product from "../models/ProductModel.js";
+const Product = require("../models/ProductModel.js");
 
 //GET all datas
-export const getProducts = async (req, res) => {
+ const getProducts = async (req, res) => {
   try {
     const products = await Product.find();
     res.json(products);
@@ -11,7 +11,7 @@ export const getProducts = async (req, res) => {
 };
 
 //GET data by id
-export const getProductById = async (req, res) => {
+const getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
     res.json(product);
@@ -21,7 +21,7 @@ export const getProductById = async (req, res) => {
 };
 
 //POST or insert data
-export const saveProduct = async (req, res) => {
+const saveProduct = async (req, res) => {
   const product = new Product(req.body);
   try {
     const insertedproduct = await product.save();
@@ -32,7 +32,7 @@ export const saveProduct = async (req, res) => {
 };
 
 //PATCH or update data
-export const updateProduct = async (req, res) => {
+const updateProduct = async (req, res) => {
     try {
       const updatedproduct = await Product.updateOne({_id:req.params.id}, {$set: req.body});
       res.status(200).json(updatedproduct);
@@ -42,7 +42,7 @@ export const updateProduct = async (req, res) => {
   };
 
   //DELETE data
-  export const deleteProduct = async (req, res) => {
+  const deleteProduct = async (req, res) => {
     try {
       const deleteduser = await Product.deleteOne({_id:req.params.id});
       res.status(200).json(deleteduser);
@@ -52,7 +52,7 @@ export const updateProduct = async (req, res) => {
   };
  
   //GET data by key and filter 
-  export const filterList = async (req,resp)=> {
+  const filterList = async (req,resp)=> {
     let data = await Product.find(
       {
         "$or":[
@@ -63,4 +63,13 @@ export const updateProduct = async (req, res) => {
     console.log(req.params.key);
     resp.send(data);
   
+  }
+
+  module.exports = {
+    getProducts,
+    getProductById,
+    saveProduct,
+    updateProduct,
+    deleteProduct,
+    filterList,
   }

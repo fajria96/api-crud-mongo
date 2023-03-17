@@ -1,19 +1,36 @@
 {
   "name": "mongodb",
   "version": "1.0.0",
-  "description": "",
-   "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "example",
+    "heroku"
+  ],
+  "author": "fajri",
   "license": "ISC",
   "dependencies": {
+    "bson": "^5.1.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "mongoose": "^7.0.2"
-  }
+    "mongodb": "^5.1.0",
+    "mongoose": "^7.0.2",
+    "engines": "^16.13.0"
+  },
+  "engines": {
+    "node": "^16.13.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fajria96/api-crud-mongo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fajria96/api-crud-mongo/issues"
+  },
+  "homepage": "https://github.com/fajria96/api-crud-mongo#readme",
+  "description": ""
 }
