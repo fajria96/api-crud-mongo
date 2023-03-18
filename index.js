@@ -13,7 +13,7 @@ app.use(express.json());
 // --- Use Mongoose ---
 const database =
   process.env.MONGO_URL ||
-  "mongodb://fajriatun:hHIQ7azDPSh7yufM@ac-9xvgiaf-shard-00-00.dew2u1j.mongodb.net:27017,ac-9xvgiaf-shard-00-01.dew2u1j.mongodb.net:27017,ac-9xvgiaf-shard-00-02.dew2u1j.mongodb.net:27017/eduwork?ssl=true&replicaSet=atlas-mdm299-shard-0&authSource=admin&retryWrites=true&w=majority";
+  'mongodb://fajriatun:hHIQ7azDPSh7yufM@ac-9xvgiaf-shard-00-00.dew2u1j.mongodb.net:27017,ac-9xvgiaf-shard-00-01.dew2u1j.mongodb.net:27017,ac-9xvgiaf-shard-00-02.dew2u1j.mongodb.net:27017/eduwork?ssl=true&replicaSet=atlas-mdm299-shard-0&authSource=admin&retryWrites=true&w=majority';
 mongoose.connect(database, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -21,10 +21,10 @@ mongoose.connect(database, {
 const db = mongoose.connection;
 db.on("error", (Error) => console.log(Error));
 db.once("open", () => console.log("Sukses Koneksi ke Mongodb..."));
-app.use(ProductRoute);
+app.use("/", ProductRoute);
 
 // --- Use MongoDB Native ---
-// app.use("/api/v2", ProductRoute2);
+// app.use("/", ProductRoute2);
 // app.use((req, res, next) => {
 //   res.status(404);
 //   res.send({
